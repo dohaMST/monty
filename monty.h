@@ -62,8 +62,5 @@ stack_t *add_dnodeint_end(stack_t **head, int n);
 int check_num(char *value);
 void free_list(stack_t **stack);
 /***/
-void argc_error(void);
-void file_error(const char *file);
-void instr_error(int count, char *line_copy, char *line);
 
 #endif
