@@ -46,7 +46,7 @@ char **generate_argv(char *line);
 /*void pall(stack_t **stack, unsigned int line_number);*/
 /*void pint(stack_t **stack, unsigned int line_number);*/
 /*void pop(stack_t **stack, unsigned int line_number);*/
-void swap(stack_t **stack, unsigned int line_number);
+/*void swap(stack_t **stack, unsigned int line_number);*/
 void add(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
@@ -85,7 +85,8 @@ void handle_pint(stack_t **head, unsigned int ln);
 /*task02.c*/
 void handle_pop(stack_t **head, unsigned int ln);
 
-
+/*task03.c*/
+void handle_swap(stack_t **head, unsigned int ln);
 
 
 
