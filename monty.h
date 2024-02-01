@@ -19,8 +19,11 @@
 #include <string.h>
 #define TOK_DELIM " \t\r\n\a\""
 extern char *val;
+<<<<<<< HEAD
 >>>>>>> b661b939af74c3032f2241a0c16376d478d2331e
 
+=======
+>>>>>>> 13072d581e76df8c82e05f5d75c9aa1fb4016c14
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -107,14 +110,15 @@ void rotr(stack_t **, unsigned int);
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern stack_t *head;
 /*char *handle_new_line(char *line);*/
 /*int opcode_(char *line, instruction_t opcode[]);*/
 char **generate_argv(char *line);
-void push(stack_t **stack, unsigned int line_number);
-void pall(stack_t **stack, unsigned int line_number);
-void pint(stack_t **stack, unsigned int line_number);
-void pop(stack_t **stack, unsigned int line_number);
-void swap(stack_t **stack, unsigned int line_number);
+/*void push2(stack_t **stack, unsigned int line_number);*/
+/*void pall(stack_t **stack, unsigned int line_number);*/
+/*void pint(stack_t **stack, unsigned int line_number);*/
+/*void pop(stack_t **stack, unsigned int line_number);*/
+/*void swap(stack_t **stack, unsigned int line_number);*/
 void add(stack_t **stack, unsigned int line_number);
 void pchar(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
@@ -143,6 +147,24 @@ void handle_file(FILE *theFile, stack_t **list);
 char *line_handler(char *line);
 int handle_opcode(char *line, instruction_t opArray[]);
 
+<<<<<<< HEAD
 >>>>>>> b661b939af74c3032f2241a0c16376d478d2331e
+=======
+/*task00.c*/
+void handle_push(stack_t **list, unsigned int ln);
+void handle_pall(stack_t **stack, unsigned int line_number);
+
+/*task01.c*/
+void handle_pint(stack_t **head, unsigned int ln);
+
+/*task02.c*/
+void handle_pop(stack_t **head, unsigned int ln);
+
+/*task03.c*/
+void handle_swap(stack_t **head, unsigned int ln);
+
+
+
+>>>>>>> 13072d581e76df8c82e05f5d75c9aa1fb4016c14
 
 #endif

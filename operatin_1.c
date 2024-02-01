@@ -5,7 +5,7 @@
  * @line_number: .
  * Return: .
 */
-void push(stack_t **stack, unsigned int line_number)
+void push22(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new = malloc(sizeof(stack_t));
 	int num, number;
