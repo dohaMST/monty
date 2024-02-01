@@ -21,10 +21,21 @@ int main(int argc, char const *argv[])
 	stack_t *stack = NULL;
 
 	if (argc != 2)
-		argc_error();
+	{
+
+		/*argc_error();*/
+		/*added*/
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
 	file = fopen(argv[1], "r");
 	if (file == NULL)
-		file_error(argv[1]);
+	{
+		/*file_error(argv[1]);*/
+		/*added*/
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
 	while (1)
 	{
 		compt++;
@@ -42,7 +53,12 @@ int main(int argc, char const *argv[])
 		else
 		{
 			free_list(&stack);
-			instr_error(compt, line_te, line);
+			/*instr_error(compt, line_te, line);*/
+			/*added*/
+			fprintf(stderr, "L%d: unknown instruction %s\n", compt, line_te);
+			free(line);
+			exit(EXIT_FAILURE);
+
 		}
 	}
 	free(line);
