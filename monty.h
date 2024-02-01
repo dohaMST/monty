@@ -55,7 +55,9 @@ void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 int check_num(char *value);
 void pint(stack_t **stack, unsigned int line_number);
-
+void argc_error(void);
+void file_error(const char *file);
+void instr_error(int cont, char *line_copy, char *line);
 
 
 

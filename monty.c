@@ -31,15 +31,17 @@ int main(int argc, char const *argv[])
 	/* check if the number of commands is correct */
 	if (argc != 2)
 	{
-		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
+		/*fprintf(stderr, "USAGE: monty file\n");*/
+		/*exit(EXIT_FAILURE);*/
+		argc_error();
 	}
 	/*open theFile and handle the existed errors */
 	theFile = fopen(argv[1], "r");
 	if (theFile == NULL)
 	{
-		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
-		exit(EXIT_FAILURE);
+		/*fprintf(stderr, "Error: Can't open file %s\n", argv[1]);*/
+		/*exit(EXIT_FAILURE);*/
+		file_error(argv[1]);
 	}
 	/*let it be a handle_line function*/
 	while (1)
@@ -66,9 +68,10 @@ int main(int argc, char const *argv[])
 		else
 		{
 			handle_free_list(&list);
-			fprintf(stderr, "L%d: unknown instruction %s\n", i, line_te);
-			free(line);
-			exit(EXIT_FAILURE);
+		/*	fprintf(stderr, "L%d: unknown instruction %s\n", i, line_te);*/
+		/*	free(line);*/
+		/*	exit(EXIT_FAILURE);*/
+			instr_error(i, line_te, line);
 		}
 	}
 	/*free all the allocated memory*/
