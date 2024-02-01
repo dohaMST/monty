@@ -7,14 +7,14 @@
  */
 char *handle_new_line2(char *line)
 {
-	size_t len;
+	int len;
 
 	/* Find the first non-space character.*/
 	while (*line && *line == ' ')
 		line++;
 
 	/* Remove the trailing newline character, if present.*/
-	len = strlen(line);
+	len = (int)strlen(line);
 	if (len > 0 && line[len - 1] == '\n')
 		line[len - 1] = '\0';
 
