@@ -1,37 +1,4 @@
 #include "monty.h"
-
-/**
- * call_F - Executes the opcode based on the instruction.
- * @inst: The opcode instruction.
- * @st: the head of the stack.
- * @i: Line number.
- * @line_t: Processed line.
- * @line: Original line.
- */
-void call_F(char *inst, stack_t **st, unsigned int i, char *line_t, char *line)
-{
-	instruction_t opcodeArray[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
-		/*{"pop", pop},*/
-		/*{"swap", swap},*/
-		/*{"add", add},*/
-		/*{"nop", nop},*/
-		/*{"sub", sub}*/
-	};
-	int idx = opcode_(inst, opcodeArray);
-
-	if (idx >= 0)
-		opcodeArray[idx].f(st, i);
-	else
-	{
-		handle_free_list(st);
-		fprintf(stderr, "L%d: unknown instruction %s\n", i, line_t);
-		free(line);
-		exit(EXIT_FAILURE);
-	}
-}
 /**
  * check_num - .
  * @value: .
@@ -53,4 +20,31 @@ int check_num(char *value)
 			return (0);
 	}
 	return (1);
+}
+/**
+ * handle_new_line - Function handles the line that user enters
+ * @line: Take the line from getline function
+ * Return: The handled string without new line(\n)
+*/
+char *handle_new_line(char *line)
+{
+	int len, i = 0;
+
+	while (line[i])
+	{
+		if (line[i] != ' ')
+		{
+			line += i;
+			break;
+		}
+		i++;
+	}
+	len = (int)strlen(line);
+	if (len == 1 && line[0] == '\n')
+		return (line);
+
+	len = (int)strlen(line);
+	if (line[len - 1] == '\n')
+		line[len - 1] = '\0';
+	return (line);
 }

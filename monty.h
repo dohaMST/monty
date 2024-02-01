@@ -1,15 +1,13 @@
 #ifndef MAIN_H
 #define MAIN_H
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdbool.h>
 #include <string.h>
+#define TOK_DELIM " \t\r\n\a\""
+extern char *val;
 
-#define TRUE 1
-#define DELIM " \t\r\n\a\""
-extern char *value;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -26,6 +24,7 @@ typedef struct stack_s
 	struct stack_s *next;
 } stack_t;
 
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -40,25 +39,31 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/*handle_free_list.c*/
-/*void handle_free_list(stack_t **head);*/
-
-/*handle_free_list2.c*/
-void handle_free_list(stack_t **stack);
-/*help.c*/
-void call_F(char *inst, stack_t **st, unsigned int i, char *line_t, char *line);
-
-/*function need to be edited*/
-int opcode_(char *line, instruction_t opcode[]);
 char *handle_new_line(char *line);
+int opcode_(char *line, instruction_t opcode[]);
+char **generate_argv(char *line);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
-int check_num(char *value);
 void pint(stack_t **stack, unsigned int line_number);
+void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void pchar(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
+void sub(stack_t **stack, unsigned int line_number);
+void div1(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int line_number);
+void rotl(stack_t **stack, unsigned int line_number);
+void rotr(stack_t **stack, unsigned int line_number);
+stack_t *add_dnodeint_end(stack_t **head, int n);
+
+int check_num(char *value);
+void free_list(stack_t **stack);
+/***/
 void argc_error(void);
 void file_error(const char *file);
-void instr_error(int cont, char *line_copy, char *line);
-
-
+void instr_error(int count, char *line_copy, char *line);
 
 #endif

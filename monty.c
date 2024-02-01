@@ -1,84 +1,52 @@
 #define _POSIX_C_SOURCE 200809L
 #include "monty.h"
-#include <stdio.h>
-char *value;
+char *val;
+
 /**
-* main - the main function
-* @argc: the count of arguments
-* @argv: the array of arguments
-* Return: 0 for success
+ * main - Function that run our interpreter
+ * @argc: Argument Count
+ * @argv: Argument vector
+ * Return: .
 */
 int main(int argc, char const *argv[])
 {
+	char *line = NULL, *line_te, *instruction;
+	size_t len = 0;
+	ssize_t read;
+	FILE *file;
+	unsigned int compt = 0;
 	int idx;
-	FILE *theFile;
-	unsigned int i = 0;
-	ssize_t x;
-	char *line = NULL, *line_te, *opcode;
-	size_t size = 0;
-	instruction_t opcodeArray[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint}
-		/*{"pop", pop},*/
-		/*{"swap", swap},*/
-		/*{"add", add},*/
-		/*{"nop", nop},*/
-		/*{"sub", sub}*/
-	};
-	stack_t *list = NULL;
+	instruction_t opcode[] = {{"push", push}, {"pall", pall}, {"pint", pint},
+	{"pop", pop}, {"swap", swap}, {"add", add},{"nop", nop},{"sub", sub}};
+	stack_t *stack = NULL;
 
-	/* check if the number of commands is correct */
 	if (argc != 2)
-	{
-		/*fprintf(stderr, "USAGE: monty file\n");*/
-		/*exit(EXIT_FAILURE);*/
 		argc_error();
-	}
-	/*open theFile and handle the existed errors */
-	theFile = fopen(argv[1], "r");
-	if (theFile == NULL)
-	{
-		/*fprintf(stderr, "Error: Can't open file %s\n", argv[1]);*/
-		/*exit(EXIT_FAILURE);*/
+	file = fopen(argv[1], "r");
+	if (file == NULL)
 		file_error(argv[1]);
-	}
-	/*let it be a handle_line function*/
 	while (1)
 	{
-		i++; /*the counter of lines*/
-		x = getline(&line, &size, theFile);
-		/*in case we reached the EOF */
-		if (x == -1)
+		compt++;
+		read = getline(&line, &len, file);
+		if (read == -1)
 			break;
-		/*//handle the spaces and \n in the line*/
 		line_te = handle_new_line(line);
-		/*//skip empty lines and comments*/
 		if (strcmp(line_te, "\n") == 0 || line_te[0] == '#')
 			continue;
-
-		/*extract the instruction and value*/
-		opcode = strtok(line_te, DELIM);
-		value = strtok(NULL, DELIM);
-		/*let it be a call_function*/
-		/*call_F(opcode, &list, i, line_te, line);*/
-		idx = opcode_(opcode, opcodeArray);
+		instruction = strtok(line_te, TOK_DELIM);
+		val = strtok(NULL, TOK_DELIM);
+		idx = opcode_(instruction, opcode);
 		if (idx >= 0)
-			opcodeArray[idx].f(&list, i);
+			opcode[idx].f(&stack, compt);
 		else
 		{
-			handle_free_list(&list);
-		/*	fprintf(stderr, "L%d: unknown instruction %s\n", i, line_te);*/
-		/*	free(line);*/
-		/*	exit(EXIT_FAILURE);*/
-			instr_error(i, line_te, line);
+			free_list(&stack);
+			instr_error(compt, line_te, line);
 		}
 	}
-	/*free all the allocated memory*/
 	free(line);
-	handle_free_list(&list);
-	fclose(theFile);
+	free_list(&stack);
+	fclose(file);
 	return (0);
 }
-
-
