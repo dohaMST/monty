@@ -52,7 +52,7 @@ int main(int argc, char const *argv[])
 			opcode[idx].f(&stack, compt);
 		else
 		{
-			free_list(&stack);
+			handle_free_list(&stack);
 			/*instr_error(compt, line_te, line);*/
 			/*added*/
 			fprintf(stderr, "L%d: unknown instruction %s\n", compt, line_te);
@@ -62,7 +62,7 @@ int main(int argc, char const *argv[])
 		}
 	}
 	free(line);
-	free_list(&stack);
+	handle_free_list(&stack);
 	fclose(file);
 	return (0);
 }

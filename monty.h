@@ -62,5 +62,9 @@ stack_t *add_dnodeint_end(stack_t **head, int n);
 int check_num(char *value);
 void free_list(stack_t **stack);
 /***/
+/*handle_free_list.c*/
+void handle_free_list(stack_t **head);
+
+
 
 #endif
