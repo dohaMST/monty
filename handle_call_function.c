@@ -11,7 +11,7 @@
 void call_F(char *inst, stack_t **st, unsigned int i, char *line_t, char *line)
 {
 	instruction_t opcodeArray[] = {
-		{"push", push},
+		{"push", handle_push},
 		{"pall", pall},
 		{"pint", pint},
 		{"pop", pop},

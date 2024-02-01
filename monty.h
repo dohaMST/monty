@@ -7,7 +7,6 @@
 #include <string.h>
 #define TOK_DELIM " \t\r\n\a\""
 extern char *val;
-
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -39,10 +38,11 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern stack_t *head;
 /*char *handle_new_line(char *line);*/
 /*int opcode_(char *line, instruction_t opcode[]);*/
 char **generate_argv(char *line);
-void push(stack_t **stack, unsigned int line_number);
+/*void push2(stack_t **stack, unsigned int line_number);*/
 void pall(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
@@ -75,5 +75,6 @@ void handle_file(FILE *theFile, stack_t **list);
 char *line_handler(char *line);
 int handle_opcode(char *line, instruction_t opArray[]);
 
-
+/*task00.c*/
+void handle_push(stack_t **list, unsigned int ln);
 #endif
