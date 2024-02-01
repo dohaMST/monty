@@ -12,7 +12,7 @@ int main(int argc, char const *argv[])
 {
 	int idx;
 	FILE *theFile;
-	unsigned int i;
+	unsigned int i = 0;
 	ssize_t x;
 	char *line = NULL, *line_te, *opcode;
 	size_t size = 0;
