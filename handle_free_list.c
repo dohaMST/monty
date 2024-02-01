@@ -4,7 +4,7 @@
  * @head: the head of the linked list
  * Return: void
 */
-void handle_free_list(stack_t **head)
+void handle_free_list_org(stack_t **head)
 {
 	stack_t *curr = *head;
 	stack_t *tmp;

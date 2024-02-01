@@ -41,8 +41,10 @@ typedef struct instruction_s
 } instruction_t;
 
 /*handle_free_list.c*/
-void handle_free_list(stack_t **head);
+/*void handle_free_list(stack_t **head);*/
 
+/*handle_free_list2.c*/
+void handle_free_list(stack_t **stack);
 /*help.c*/
 void call_F(char *inst, stack_t **st, unsigned int i, char *line_t, char *line);
 
