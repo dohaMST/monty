@@ -1,13 +1,13 @@
 #define _POSIX_C_SOURCE 200809L
 #include "monty.h"
 #include <stdio.h>
+char *value;
 /**
 * main - the main function
 * @argc: the count of arguments
 * @argv: the array of arguments
 * Return: 0 for success
 */
-char *value;
 int main(int argc, char const *argv[])
 {
 	int idx;
@@ -56,8 +56,8 @@ int main(int argc, char const *argv[])
 			continue;
 
 		/*extract the instruction and value*/
-		opcode = strtok(line, " \t\r\n\a\"");
-		value = strtok(NULL, " \t\r\n\a\"");
+		opcode = strtok(line, DELIM);
+		value = strtok(NULL, DELIM);
 		/*let it be a call_function*/
 		/*call_F(opcode, &list, i, line_te, line);*/
 		idx = opcode_(opcode, opcodeArray);
