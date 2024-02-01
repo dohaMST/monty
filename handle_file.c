@@ -21,7 +21,7 @@ void handle_file(FILE *theFile, stack_t **list)
 		if (x == -1)
 			break;
 
-		cp_line = handle_new_line2(line);
+		cp_line = line_handler(line);
 		if (strcmp(cp_line, "\n") == 0 || cp_line[0] == '#')
 			continue;
 

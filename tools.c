@@ -1,23 +1,31 @@
 #include <string.h>
 
 /**
- * handle_new_line2 - Function handles the line that the user enters.
- * @line: Takes the line from the getline function.
- * Return: The handled string without a new line (\n).
+ * line_handler - a function that handles the line
+ * @line: line from the getline function.
+ * Return: handled string without a new line (\n).
  */
-char *handle_new_line2(char *line)
+char *line_handler(char *line)
 {
-	int len;
+	int size, a = 0;
 
-	/* Find the first non-space character.*/
-	while (*line && *line == ' ')
-		line++;
-
-	/* Remove the trailing newline character, if present.*/
-	len = (int)strlen(line);
-	if (len > 0 && line[len - 1] == '\n')
-		line[len - 1] = '\0';
-
+	while (line[a])
+	{
+		/*Find the first non-space character.*/
+		if (line[a] != ' ')
+		{
+			line += a;
+			break;
+		}
+		a++;
+	}
+	/*Calculate the length of the line.*/
+	size = (int)strlen(line);
+	/*handle the line if it is only a '\n'*/
+	if (size == 1 && line[0] == '\n')
+		return (line);
+	/*handle the last character of the line if it is a newline character*/
+	if (line[size - 1] == '\n')
+		line[size - 1] = '\0';
 	return (line);
 }
-

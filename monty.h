@@ -72,6 +72,6 @@ void call_F(char *inst, stack_t **st, unsigned int i, char *line_t, char *line);
 void handle_file(FILE *theFile, stack_t **list);
 
 /***/
-char *handle_new_line2(char *line);
+char *line_handler(char *line);
 
 #endif
