@@ -82,7 +82,7 @@ void handle_pall(stack_t **stack, unsigned int line_number);
 /*task01.c*/
 void handle_pint(stack_t **head, unsigned int ln);
 
-
-
+/*task02.c*/
+void handle_pop(stack_t **stack, unsigned int line_number);
 
 #endif

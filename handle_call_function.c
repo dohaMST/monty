@@ -14,7 +14,7 @@ void call_F(char *inst, stack_t **st, unsigned int i, char *line_t, char *line)
 		{"push", handle_push},
 		{"pall", handle_pall},
 		{"pint", handle_pint},
-		{"pop", pop},
+		{"pop", handle_pop},
 		{"swap", swap},
 		{"add", add},
 		{"nop", nop},
