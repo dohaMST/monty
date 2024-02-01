@@ -1,0 +1,60 @@
+#define _POSIX_C_SOURCE 200809L
+#include "monty.h"
+#include <stdio.h>
+/**
+* main - the main function
+* @argc: the count of arguments
+* @argv: the array of arguments
+* Return: 0 for success
+*/
+char *value;
+int main(int argc, char const *argv[])
+{
+	FILE *theFile;
+	unsigned int i;
+	ssize_t x;
+	char *line = NULL, *line_te, *opcode;
+	size_t size = 0;
+	stack_t *list = NULL;
+
+	/* check if the number of commands is correct */
+	if (argc != 2)
+	{
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
+	/*open theFile and handle the existed errors */
+	theFile = fopen(argv[1], "r");
+	if (!theFile)
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
+	/*let it be a handle_line function*/
+	while (TRUE)
+	{
+		i++; /*the counter of lines*/
+		x = getline(&line, &size, theFile);
+		/*in case we reached the EOF */
+		if (x == -1)
+			break;
+		/*//handle the spaces and \n in the line*/
+		line_te = handle_new_line(line);
+		/*//skip empty lines and comments*/
+		if (strcmp(line_te, "\n") == 0 || line_te[0] == '#')
+			continue;
+
+		/*extract the instruction and value*/
+		opcode = strtok(line, " \t\r\n\a\"");
+		value = strtok(NULL, " \t\r\n\a\"");
+		/*let it be a call_function*/
+		call_F(opcode, &list, i, line_te, line);
+	}
+	/*free all the allocated memory*/
+	free(line);
+	handle_free_list(&list);
+	fclose(theFile);
+	return (0);
+}
+
+
