@@ -1,15 +1,15 @@
 #include "monty.h"
 /**
- * handle_pint - Prints the top node of the stack.
- * @stack: Pointer to a pointer pointing to top node of the stack.
- * @line_number: Interger representing the line number of of the opcode.
+ * handle_pint - a function that prints the top node of the list
+ * @head: double pointer to top node of the list
+ * @ln: line number of the opcode.
  */
-void handle_pint(stack_t **stack, unsigned int line_number)
+void handle_pint(stack_t **head, unsigned int ln)
 {
-	if (stack == NULL || *stack == NULL)
+	if (head == NULL || *head == NULL)
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		fprintf(stderr, "L%d: can't pint, stack empty\n", ln);
 		exit(EXIT_FAILURE);
 	}
-	printf("%d\n", (*stack)->n);
+	printf("%d\n", (*head)->n);
 }
