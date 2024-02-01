@@ -68,5 +68,8 @@ void handle_free_list(stack_t **head);
 /*handle call_function.c*/
 void call_F(char *inst, stack_t **st, unsigned int i, char *line_t, char *line);
 
+/*handle_file.c*/
+void handle_file(FILE *theFile, stack_t **list);
+
 
 #endif
