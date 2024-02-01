@@ -1,22 +1,22 @@
 #include "monty.h"
 
 /**
- * handle_pop - Adds a node to the stack.
- * @stack: Pointer to a pointer pointing to top node of the stack.
- * @line_number: Interger representing the line number of of the opcode.
+ * handle_pop - a function that removes the top node of a list
+ * @head: double pointer to the head
+ * @ln: line number of the opcode
  */
-void handle_pop(stack_t **stack, unsigned int line_number)
+void handle_pop(stack_t **head, unsigned int ln)
 {
 	stack_t *tmp;
 
-	if (stack == NULL || *stack == NULL)
+	if (head == NULL || *head == NULL)
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		fprintf(stderr, "L%d: can't pop an empty stack\n", ln);
 		exit(EXIT_FAILURE);
 	}
-	tmp = *stack;
-	*stack = tmp->next;
-	if (*stack != NULL)
-		(*stack)->prev = NULL;
+	tmp = *head;
+	*head = tmp->next;
+	if (*head != NULL)
+		(*head)->prev = NULL;
 	free(tmp);
 }
