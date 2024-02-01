@@ -79,6 +79,6 @@ int handle_opcode(char *line, instruction_t opArray[]);
 void handle_push(stack_t **list, unsigned int ln);
 void handle_pall(stack_t **stack, unsigned int line_number);
 
-
-
+/*task01.c*/
+void handle_pint(stack_t **stack, unsigned int line_number);
 #endif
