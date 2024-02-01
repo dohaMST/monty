@@ -52,7 +52,7 @@ char *handle_new_line(char *line);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 int check_num(char *value);
-
+void pint(stack_t **stack, unsigned int line_number);
 
 
 
