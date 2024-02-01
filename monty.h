@@ -43,7 +43,7 @@ extern stack_t *head;
 /*int opcode_(char *line, instruction_t opcode[]);*/
 char **generate_argv(char *line);
 /*void push2(stack_t **stack, unsigned int line_number);*/
-void pall(stack_t **stack, unsigned int line_number);
+/*void pall(stack_t **stack, unsigned int line_number);*/
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);

@@ -15,8 +15,8 @@ void handle_push(stack_t **list, unsigned int ln)
 	i = check_num(val);
 	if ((!i))
 	{
-		free_list(&new_node);
-		free_list(list);
+		handle_free_list(&new_node);
+		handle_free_list(list);
 		fprintf(stderr, "L%d: usage: push integer\n", ln);
 		exit(EXIT_FAILURE);
 	}
@@ -39,18 +39,18 @@ void handle_push(stack_t **list, unsigned int ln)
 }
 
 /**
- * handle_pall - Adds a node to the stack.
- * @stack: Pointer to a pointer pointing to top node of the stack.
- * @line_number: line number of  the opcode.
+ * handle_pall - a function that adds a node to the list
+ * @list: double pointer to the top node of the list
+ * @ln: the line number of opcode
  */
-void handle_pall(stack_t **stack, unsigned int line_number)
+void handle_pall(stack_t **list, unsigned int ln)
 {
 	stack_t *tmp;
 
-	(void) line_number;
-	if (stack == NULL)
+	(void) ln;
+	if (list == NULL)
 		exit(EXIT_FAILURE);
-	tmp = *stack;
+	tmp = *list;
 	while (tmp != NULL)
 	{
 		printf("%d\n", tmp->n);
