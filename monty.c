@@ -16,15 +16,11 @@ int main(int argc, char const *argv[])
 	ssize_t x;
 	FILE *theFile;
 	unsigned int i = 0;
-	/*int idx;*/
-	/*instruction_t opArray[] = {{"push", push}, {"pall", pall}, {"pint", pint},*/
-	/*{"pop", pop}, {"swap", swap}, {"add", add},{"nop", nop},{"sub", sub}};*/
 	stack_t *list = NULL;
 
 	if (argc != 2)
 	{
 
-		/*argc_error();*/
 		/*added*/
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
@@ -32,7 +28,6 @@ int main(int argc, char const *argv[])
 	theFile = fopen(argv[1], "r");
 	if (theFile == NULL)
 	{
-		/*file_error(argv[1]);*/
 		/*added*/
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
@@ -48,19 +43,6 @@ int main(int argc, char const *argv[])
 			continue;
 		instruction = strtok(line_te, TOK_DELIM);
 		val = strtok(NULL, TOK_DELIM);
-		/*idx = opcode_(instruction, opArray);*/
-		/*if (idx >= 0)*/
-		/*	opArray[idx].f(&list, i);*/
-		/*else*/
-		/*{*/
-		/*	handle_free_list(&list);*/
-		/*	added*/
-		/*	fprintf(stderr, "L%d: unknown instruction %s\n", i, line_te);*/
-		/*	free(line);*/
-		/*	exit(EXIT_FAILURE);*/
-
-/*		}*/
-
 		/*le it be a call function*/
 		call_F(instruction, &list, i, line_te, line);
 	}
