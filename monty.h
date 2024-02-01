@@ -65,6 +65,8 @@ void free_list(stack_t **stack);
 /*handle_free_list.c*/
 void handle_free_list(stack_t **head);
 
+/*handle call_function.c*/
+void call_F(char *inst, stack_t **st, unsigned int i, char *line_t, char *line);
 
 
 #endif
