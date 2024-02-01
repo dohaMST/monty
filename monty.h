@@ -39,7 +39,7 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-char *handle_new_line(char *line);
+/*char *handle_new_line(char *line);*/
 int opcode_(char *line, instruction_t opcode[]);
 char **generate_argv(char *line);
 void push(stack_t **stack, unsigned int line_number);
