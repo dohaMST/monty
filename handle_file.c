@@ -8,7 +8,7 @@
  */
 void handle_file(FILE *theFile, stack_t **list)
 {
-	char *line = NULL, *line_te, *instruction;
+	char *line = NULL, *cp_line, *instruction;
 	size_t size = 0;
 	ssize_t x;
 	unsigned int i = 0;
@@ -21,14 +21,14 @@ void handle_file(FILE *theFile, stack_t **list)
 		if (x == -1)
 			break;
 
-		line_te = handle_new_line(line);
-		if (strcmp(line_te, "\n") == 0 || line_te[0] == '#')
+		cp_line = handle_new_line(line);
+		if (strcmp(cp_line, "\n") == 0 || cp_line[0] == '#')
 			continue;
 
-		instruction = strtok(line_te, TOK_DELIM);
-		val = strtok(NULL, TOK_DELIM);
+		instruction = strtok(cp_line, " \t\r\n\a\"");
+		val = strtok(NULL, " \t\r\n\a\"");
 
-		call_F(instruction, list, i, line_te, line);
+		call_F(instruction, list, i, cp_line, line);
 	}
 
 	free(line);
