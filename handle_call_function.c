@@ -20,7 +20,7 @@ void call_F(char *inst, stack_t **st, unsigned int i, char *line_t, char *line)
 		{"nop", nop},
 		{"sub", sub}
 	};
-	int idx = opcode_(inst, opcodeArray);
+	int idx = handle_opcode(inst, opcodeArray);
 
 	if (idx >= 0)
 		opcodeArray[idx].f(st, i);

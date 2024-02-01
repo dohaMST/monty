@@ -71,7 +71,9 @@ void call_F(char *inst, stack_t **st, unsigned int i, char *line_t, char *line);
 /*handle_file.c*/
 void handle_file(FILE *theFile, stack_t **list);
 
-/***/
+/*tools.c*/
 char *line_handler(char *line);
+int handle_opcode(char *line, instruction_t opArray[]);
+
 
 #endif

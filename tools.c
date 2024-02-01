@@ -29,3 +29,24 @@ char *line_handler(char *line)
 		line[size - 1] = '\0';
 	return (line);
 }
+
+#include "monty.h"
+
+/**
+ * handle_opcode - Function that searches for an opcode in an array of instructions.
+ * @line: The opcode to search for.
+ * @opArray: Array of instruction_t structures containing opcodes and their functions.
+ * Return: Index of the opcode in the array, or -1 if not found.
+ */
+int handle_opcode(char *line, instruction_t opArray[])
+{
+    int i = 0;
+
+    while (i < 8 && strcmp(line, opArray[i].opcode) != 0)
+    {
+        i++;
+    }
+
+    return (i < 8 ? i : -1);
+}
+
