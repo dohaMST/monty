@@ -19,7 +19,7 @@ int main(int argc, char const *argv[])
 	instruction_t opcodeArray[] = {
 		{"push", push},
 		{"pall", pall},
-		{"pint", pint},
+		{"pint", pint}
 		/*{"pop", pop},*/
 		/*{"swap", swap},*/
 		/*{"add", add},*/
@@ -36,13 +36,13 @@ int main(int argc, char const *argv[])
 	}
 	/*open theFile and handle the existed errors */
 	theFile = fopen(argv[1], "r");
-	if (!theFile)
+	if (theFile == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
 	}
 	/*let it be a handle_line function*/
-	while (TRUE)
+	while (1)
 	{
 		i++; /*the counter of lines*/
 		x = getline(&line, &size, theFile);
@@ -56,7 +56,7 @@ int main(int argc, char const *argv[])
 			continue;
 
 		/*extract the instruction and value*/
-		opcode = strtok(line, DELIM);
+		opcode = strtok(line_te, DELIM);
 		value = strtok(NULL, DELIM);
 		/*let it be a call_function*/
 		/*call_F(opcode, &list, i, line_te, line);*/
