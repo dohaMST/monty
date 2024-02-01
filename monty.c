@@ -10,11 +10,22 @@
 char *value;
 int main(int argc, char const *argv[])
 {
+	int idx;
 	FILE *theFile;
 	unsigned int i;
 	ssize_t x;
 	char *line = NULL, *line_te, *opcode;
 	size_t size = 0;
+	instruction_t opcodeArray[] = {
+		{"push", push},
+		{"pall", pall},
+		{"pint", pint},
+		/*{"pop", pop},*/
+		/*{"swap", swap},*/
+		/*{"add", add},*/
+		/*{"nop", nop},*/
+		/*{"sub", sub}*/
+	};
 	stack_t *list = NULL;
 
 	/* check if the number of commands is correct */
@@ -48,7 +59,17 @@ int main(int argc, char const *argv[])
 		opcode = strtok(line, " \t\r\n\a\"");
 		value = strtok(NULL, " \t\r\n\a\"");
 		/*let it be a call_function*/
-		call_F(opcode, &list, i, line_te, line);
+		/*call_F(opcode, &list, i, line_te, line);*/
+		idx = opcode_(opcode, opcodeArray);
+		if (idx >= 0)
+			opcodeArray[idx].f(&list, i);
+		else
+		{
+			handle_free_list(&list);
+			fprintf(stderr, "L%d: unknown instruction %s\n", i, line_te);
+			free(line);
+			exit(EXIT_FAILURE);
+		}
 	}
 	/*free all the allocated memory*/
 	free(line);
