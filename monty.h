@@ -38,6 +38,26 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+extern stack_t *head;
+/*char *handle_new_line(char *line);*/
+/*int opcode_(char *line, instruction_t opcode[]);*/
+char **generate_argv(char *line);
+/*void push2(stack_t **stack, unsigned int line_number);*/
+/*void pall(stack_t **stack, unsigned int line_number);*/
+/*void pint(stack_t **stack, unsigned int line_number);*/
+/*void pop(stack_t **stack, unsigned int line_number);*/
+/*void swap(stack_t **stack, unsigned int line_number);*/
+/*void add(stack_t **stack, unsigned int line_number);*/
+void pchar(stack_t **stack, unsigned int line_number);
+/*void nop(stack_t **stack, unsigned int line_number);*/
+/*void sub(stack_t **stack, unsigned int line_number);*/
+/*void div1(stack_t **stack, unsigned int line_number);*/
+void mul(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
+void pstr(stack_t **stack, unsigned int line_number);
+void rotl(stack_t **stack, unsigned int line_number);
+void rotr(stack_t **stack, unsigned int line_number);
+stack_t *add_dnodeint_end(stack_t **head, int n);
 
 int check_num(char *value);
 void free_list(stack_t **stack);

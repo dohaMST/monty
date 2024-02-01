@@ -2,7 +2,7 @@
 #include "monty.h"
 
 /**
- * handle_file - Reads lines from a file and processes them.
+ * process_file - Reads lines from a file and processes them.
  * @theFile: File pointer.
  * @list: Pointer to the head of the stack.
  */
