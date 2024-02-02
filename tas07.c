@@ -11,7 +11,7 @@ void handle_div(stack_t **head, unsigned int ln)
 
 	if (head == NULL || *head == NULL || (*head)->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't add, stack too short\n", ln);
+		fprintf(stderr, "L%d: can't div, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
 

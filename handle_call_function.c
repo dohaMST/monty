@@ -19,7 +19,8 @@ void call_F(char *inst, stack_t **st, unsigned int i, char *line_t, char *line)
 		{"add", handle_add},
 		{"nop", handle_nop},
 		{"sub", handle_sub},
-		{"div", handle_div}
+		{"div", handle_div},
+		{"mul", handle_mul}
 	};
 	int idx = handle_opcode(inst, opcodeArray);
 
