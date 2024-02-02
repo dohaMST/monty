@@ -83,6 +83,8 @@ void handle_div(stack_t **head, unsigned int ln);
 /*task08.c*/
 void handle_mul(stack_t **head, unsigned int ln);
 
+/*task09*/
+void handle_mod(stack_t **head, unsigned int ln);
 
 
 #endif
