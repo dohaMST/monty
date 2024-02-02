@@ -11,6 +11,7 @@ void handle_sub(stack_t **head, unsigned int ln)
 	int i;
 	stack_t *tmp;
 
+	/*check if the stack is less than 2 elements*/
 	if (!(*head) || !((*head)->next))
 	{
 		handle_free_list(head);
@@ -19,8 +20,10 @@ void handle_sub(stack_t **head, unsigned int ln)
 	}
 	tmp = *head;
 	i = (*head)->n;
+	/*subtract the top element value from the second element value*/
 	(*head)->next->n -= i;
 	(*head)->next->prev = NULL;
 	free(tmp);
+	/*change the head pointer to the second element*/
 	*head = (*head)->next;
 }
