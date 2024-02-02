@@ -86,5 +86,7 @@ void handle_mul(stack_t **head, unsigned int ln);
 /*task09*/
 void handle_mod(stack_t **head, unsigned int ln);
 
+/*task11*/
+void handle_pchar(stack_t **head, unsigned int ln);
 
 #endif
