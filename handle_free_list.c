@@ -1,19 +1,24 @@
 #include "monty.h"
+
 /**
  * handle_free_list - a function that Frees the memory allocated for a list
  * @head: the head of the linked list
  * Return: void
 */
+
 void handle_free_list(stack_t **head)
 {
-	stack_t *curr = *head;
-	stack_t *tmp;
+	stack_t *tmp2 = *head;
+	stack_t *curr;
 
-	while (curr != NULL)
+	/* Iterate through the list until we reach NULL*/
+	while (tmp2 != NULL)
 	{
-		tmp = curr;
-		curr = curr->next;
-		free(tmp);
+		curr = tmp2;
+		tmp2 = tmp2->next;
+		/*free the memory of the current node*/
+		free(curr);
 	}
+	/*set the head pointer to NULL*/
 	*head = NULL;
 }
