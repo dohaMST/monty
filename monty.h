@@ -92,4 +92,9 @@ void handle_pchar(stack_t **head, unsigned int ln);
 /*task13*/
 void handle_rotl(stack_t **head, __attribute__((unused))unsigned int ln);
 
+/*task14*/
+
+void handle_rotr(stack_t **head, __attribute__((unused))unsigned int ln);
+
+
 #endif
