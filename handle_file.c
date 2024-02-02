@@ -27,7 +27,9 @@ void handle_file(FILE *theFile, stack_t **list)
 
 		instruction = strtok(cp_line, " \t\r\n\a\"");
 		val = strtok(NULL, " \t\r\n\a\"");
-
+		/* i think here i should handle the commands*/
+		if (instruction[0] == '#')
+			continue;
 		call_F(instruction, list, i, cp_line, line);
 	}
 
