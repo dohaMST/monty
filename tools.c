@@ -47,6 +47,6 @@ int handle_opcode(char *line, instruction_t opArray[])
 		i++;
 	}
 
-	return (i < 8 ? i : -1);
+	return (i < 10 ? i : -1);
 }
 
