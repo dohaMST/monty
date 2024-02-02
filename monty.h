@@ -56,6 +56,7 @@ void handle_file(FILE *theFile, stack_t **list);
 /*tools.c*/
 char *line_handler(char *line);
 int handle_opcode(char *line, instruction_t opArray[]);
+int handle_check_num(char *v);
 
 /*task00.c*/
 void handle_push(stack_t **list, unsigned int ln);

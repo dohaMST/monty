@@ -1,3 +1,4 @@
+#include "monty.h"
 #include <string.h>
 
 /**
@@ -30,7 +31,6 @@ char *line_handler(char *line)
 	return (line);
 }
 
-#include "monty.h"
 
 /**
  * handle_opcode - a function that searches for an opcode in an array
@@ -50,3 +50,25 @@ int handle_opcode(char *line, instruction_t opArray[])
 	return (i < 11 ? i : -1);
 }
 
+/**
+ * handle_check_num - a function that checks if a string represents a valid int
+ * @v: the value we wanna check
+ * Return: 1 or 0
+*/
+int handle_check_num(char *v)
+{
+	char *x = v;
+
+	if (!v)
+		return (0);
+	if (*x == '-')
+		x++;
+	while (*x != '\0')
+	{
+		if (*x >= '0' && *x <= '9')
+			x++;
+		else
+			return (0);
+	}
+	return (1);
+}

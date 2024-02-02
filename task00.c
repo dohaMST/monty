@@ -12,7 +12,7 @@ void handle_push(stack_t **list, unsigned int ln)
 	stack_t *new_node = malloc(sizeof(stack_t));
 	int i, x;
 
-	i = check_num(val);
+	i = handle_check_num(val);
 	if ((!i))
 	{
 		handle_free_list(&new_node);
