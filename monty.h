@@ -41,9 +41,6 @@ typedef struct instruction_s
 } instruction_t;
 
 
-int check_num(char *value);
-/*void free_list(stack_t **stack);*/
-/***/
 /*handle_free_list.c*/
 void handle_free_list(stack_t **head);
 

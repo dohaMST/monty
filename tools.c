@@ -42,11 +42,13 @@ int handle_opcode(char *line, instruction_t opArray[])
 {
 	int i = 0;
 
+	/*Iterate through the opArray until we found the opcode*/
 	while (i < 11 && strcmp(line, opArray[i].opcode) != 0)
 	{
 		i++;
 	}
 
+	/*return the index or -1*/
 	return (i < 11 ? i : -1);
 }
 
@@ -59,10 +61,13 @@ int handle_check_num(char *v)
 {
 	char *x = v;
 
+	/*check if the value is null*/
 	if (!v)
 		return (0);
+	/*check if the first char is '-'*/
 	if (*x == '-')
 		x++;
+	/*Iterate through the string chars*/
 	while (*x != '\0')
 	{
 		if (*x >= '0' && *x <= '9')
@@ -70,5 +75,6 @@ int handle_check_num(char *v)
 		else
 			return (0);
 	}
+	/*return 1 if all the chars are digits*/
 	return (1);
 }
