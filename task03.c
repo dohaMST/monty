@@ -11,7 +11,7 @@ void handle_swap(stack_t **head, unsigned int ln)
 
 	if (!(*head) || !((*head)->next))
 	{
-		free_list(head);
+		handle_free_list(head);
 		fprintf(stderr, "L%d: can't swap, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}

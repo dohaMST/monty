@@ -1,12 +1,14 @@
 #ifndef MAIN_H
 #define MAIN_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdbool.h>
 #include <string.h>
-#define TOK_DELIM " \t\r\n\a\""
+/*#define TOK_DELIM " \t\r\n\a\""*/
 extern char *val;
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -40,7 +42,7 @@ typedef struct instruction_s
 
 
 int check_num(char *value);
-void free_list(stack_t **stack);
+/*void free_list(stack_t **stack);*/
 /***/
 /*handle_free_list.c*/
 void handle_free_list(stack_t **head);
