@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <stdbool.h>
 #include <string.h>
-/*#define TOK_DELIM " \t\r\n\a\""*/
+
 extern char *val;
 
 /**
