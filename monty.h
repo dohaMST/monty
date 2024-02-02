@@ -81,7 +81,7 @@ void handle_sub(stack_t **head, unsigned int ln);
 void handle_div(stack_t **head, unsigned int ln);
 
 /*task08.c*/
-void handle_mul(stack_t **stack, unsigned int line_number);
+void handle_mul(stack_t **head, unsigned int ln);
 
 
 

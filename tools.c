@@ -42,7 +42,7 @@ int handle_opcode(char *line, instruction_t opArray[])
 {
 	int i = 0;
 
-	while (i < 8 && strcmp(line, opArray[i].opcode) != 0)
+	while (i < 10 && strcmp(line, opArray[i].opcode) != 0)
 	{
 		i++;
 	}

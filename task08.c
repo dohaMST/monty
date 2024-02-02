@@ -1,22 +1,24 @@
 #include "monty.h"
 
 /**
- * handle_mul - Adds the top two elements of the stack.
- * @stack: Pointer to a pointer pointing to top node of the stack.
- * @line_number: Interger representing the line number of of the opcode.
+ * handle_mul - a function that multiplies two first elements of a list
+ * @head: double pointer to a the head of a list
+ * @ln: line number of of the opcode
+ * Return: void
  */
-void handle_mul(stack_t **stack, unsigned int line_number)
+void handle_mul(stack_t **head, unsigned int ln)
 {
-	int sum;
+	int mul;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if (head == NULL || *head == NULL || (*head)->next == NULL)
 	{
-		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		handle_free_list(head);
+		fprintf(stderr, "L%d: can't mul, stack too short\n", ln);
 		exit(EXIT_FAILURE);
 	}
-	(*stack) = (*stack)->next;
-	sum = (*stack)->n * (*stack)->prev->n;
-	(*stack)->n = sum;
-	free((*stack)->prev);
-	(*stack)->prev = NULL;
+	(*head) = (*head)->next;
+	mul = (*head)->n * (*head)->prev->n;
+	(*head)->n = mul;
+	free((*head)->prev);
+	(*head)->prev = NULL;
 }
