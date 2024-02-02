@@ -43,13 +43,13 @@ int handle_opcode(char *line, instruction_t opArray[])
 	int i = 0;
 
 	/*Iterate through the opArray until we found the opcode*/
-	while (i < 12 && strcmp(line, opArray[i].opcode) != 0)
+	while (i < 13 && strcmp(line, opArray[i].opcode) != 0)
 	{
 		i++;
 	}
 
 	/*return the index or -1*/
-	return (i < 12 ? i : -1);
+	return (i < 13 ? i : -1);
 }
 
 /**
